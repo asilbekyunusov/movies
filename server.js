@@ -6,14 +6,7 @@ const { Pool } = require('pg');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Env dan ulanish ma'lumotlarini o‘qish
-// Agar .env da DATABASE_URL yo'q bo'lsa, uni shu yerda hosil qilamiz
-const {
-  DATABASE_URL,
-} = process.env;
-
-const connectionString = process.env.DATABASE_URL ||
-  `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
+const connectionString = process.env.DATABASE_URL;
 
 // Pool yaratamiz
 const pool = new Pool({
